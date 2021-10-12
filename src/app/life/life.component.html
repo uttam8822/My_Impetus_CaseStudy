@@ -23,33 +23,59 @@
              <p >If Someone is Dependent on your Income then yo Must Have a Life Insurance<br>
                  Please Fill this Form To apply in Our Company</p>
         </div>
-        <form>
+        <form [formGroup]="LifeForm">
             <div class="row g-3">
                 <div class="col">
                     <label>First name</label>
-                    <input type="text" class="form-control" aria-label="First name" placeholder="Enter your first name" required/>
+                    <input formControlName = "firstname" class="form-control" aria-label="First name" placeholder="Enter your first name" required/>
+                <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                    <span class="error" *ngIf="firstname.errors?.required"> First Name is required</span>
+                    <span class="error" *ngIf="firstname.errors?.pattern"> Enter Only Characters</span>
+                </div>
                 </div>
                 <div class="col">
                     <label>Middle name</label>
-                    <input type="text" class="form-control"  aria-label="Last name" placeholder="Enter middle last name" required>
+                    <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter middle last name" required>
+                    <div *ngIf="middlename.invalid && (middlename.touched || middlename.dirty)">
+                        <span class="error" *ngIf="middlename.errors?.required"> Middle Name is required</span>
+                        <span class="error" *ngIf="middlename.errors?.pattern"> Enter Only Characters</span>
+                    </div>
                 </div>
                 <div class="col">
                     <label>Last name</label>
-                    <input type="text" class="form-control"  aria-label="Last name" placeholder="Enter your last name" required>
+                    <input formControlName="lastname" class="form-control"  aria-label="Last name" placeholder="Enter your last name" required>
+                    <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+                        <span class="error" *ngIf="lastname.errors?.required"> Last Name is required</span>
+                        <span class="error" *ngIf="lastname.errors?.pattern"> Enter Only Characters</span>
+                    </div>
                 </div>
             </div> 
             <div class="row g-3">
                 <div class="col">
                     <label>Aadhar number</label>
-                    <input type="text" class="form-control" aria-label="adhar" placeholder="Enter 12 digit Aadhar number" required/>
+                    <input formControlName="aadhar" class="form-control" aria-label="adhar" placeholder="Enter 12 digit Aadhar number" required/>
+                    <div *ngIf="aadhar.invalid && (aadhar.touched || aadhar.dirty)">
+                        <span class="error" *ngIf="aadhar.errors?.required"> *Aadhar is required</span>
+                        <span class="error" *ngIf="aadhar.errors?.pattern">  *Only numbers are allowed</span>
+                        <span class="error" *ngIf="aadhar.errors?.minlength"> *Invalid Aadhar</span>
+                        <span class="error" *ngIf="aadhar.errors?.maxlength">*Invalid Aadhar</span>
+                        
+                    </div>
                 </div>
                 <div class="col">
                     <label>Email</label>
-                    <input type="text" class="form-control"  aria-label="email" placeholder="Enter your email" required>
+                    <input formControlName="email" class="form-control"  aria-label="email" placeholder="Enter your email" required>
+                    <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                    <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id</span>
+                    </div> 
                 </div>
                 <div class="col">
                     <label>PAN number</label>
-                    <input type="text" class="form-control"  aria-label="pan" placeholder="Enter your PAN number" required>
+                    <input formControlName="pannumber" class="form-control"  aria-label="pan" placeholder="Enter your PAN number" required>
+                    <div *ngIf="pannumber.invalid && (pannumber.touched || pannumber.dirty)">
+                        <span class="error" *ngIf="pannumber.errors?.required"> Pan is required</span>
+                        <span class="error" *ngIf="pannumber.errors?.pattern"> Invalid Pan</span>
+                    </div>
                 </div>
             </div>
             <div>
@@ -60,11 +86,21 @@
                     </div>
                     <div class="col">
                         <label>Zip code</label>
-                        <input type="text" class="form-control" aria-label="zip" placeholder="Enter zip code" required/>
+                        <input formControlName="zipcode" class="form-control" aria-label="zip" placeholder="Enter zip code" required/>
+                        <div *ngIf="zipcode.invalid && (zipcode.touched || zipcode.dirty)">
+                        <span class="error" *ngIf="zipcode.errors?.required"> *Zip Code is required</span>
+                        <span class="error" *ngIf="zipcode.errors?.pattern"> *Only Numbers are allowed</span>
+                        <span class="error" *ngIf="zipcode.errors?.minlength">*Invalid Zip code</span>
+                        <span class="error" *ngIf="zipcode.errors?.maxlength">*Invalid Zip code</span>
+                    </div>
                     </div>
                     <div class="col">
                         <label>City</label>
-                        <input type="text" class="form-control" aria-label="city" placeholder="Enter city" required/>
+                        <input formControlName="city" class="form-control" aria-label="city" placeholder="Enter city" required/>
+                        <div *ngIf="city.invalid && (city.touched || city.dirty)">
+                        <span class="error" *ngIf="city.errors?.required"> *city is required</span>
+                        <span class="error" *ngIf="city.errors?.pattern"> *Only Characters allowed</span>
+                        </div>
                     </div>
                 </div>    
             </div> 
@@ -115,7 +151,13 @@
                     </div>
                     <div class="col">
                         <label>Contact</label>
-                        <input type="text" class="form-control" aria-label="contact" placeholder="(+91) (9400000000)" required/>
+                        <input formControlName="contact" class="form-control" aria-label="contact" placeholder="9100000000" required/>
+                        <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
+                            <span class="error" *ngIf="contact.errors?.required"> *Mobile is required</span>
+                            <span class="error" *ngIf="contact.errors?.pattern"> *Only Numbers are allowed</span>
+                            <span class="error" *ngIf="contact.errors?.minlength">*Invalid Mobile</span>
+                            <span class="error" *ngIf="contact.errors?.maxlength">*Invalid Mobile</span>
+                        </div>
                     </div>
                     <div class="col">
                         <label>Birth date</label>
@@ -132,7 +174,14 @@
                     </div>
                     <div class="col">
                         <label>Annual Income</label>
-                    <input type=number class="form-control"  placeholder="In Lacs" required/>
+                    <input formControlName="income" class="form-control"  placeholder="In Lacs" required/>
+
+                    <div *ngIf="income.invalid && (income.touched || income.dirty)">
+                        <span class="error" *ngIf="income.errors?.required"> *Income is required</span>
+                        <span class="error" *ngIf="income.errors?.pattern"> *Only Numbers are allowed</span>
+                        <span class="error" *ngIf="income.errors?.minlength">*Invalid income</span>
+                        <span class="error" *ngIf="income.errors?.maxlength">*Invalid income</span>
+                    </div>
                     </div>
                 </div>    
             </div>
@@ -148,7 +197,7 @@
                 </div>
                 <div class="col">
                     <label>Gender</label>
-                <input type="text" class="form-control" aria-label="Gender" placeholder="Male/female" required/>
+                <input type="text" class="form-control" aria-label="Gender" placeholder="Male/Female" required/>
                 </div>
             </div>
             <div>

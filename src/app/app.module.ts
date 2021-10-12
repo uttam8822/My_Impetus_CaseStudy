@@ -22,6 +22,8 @@ import { DentalComponent } from './dental/dental.component';
 import { DentalVisionComponent } from './dental-vision/dental-vision.component';
 import { ServiceComponent } from './service/service.component';
 import { CreatuwComponent } from './creatuw/creatuw.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { CreatuwComponent } from './creatuw/creatuw.component';
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
