@@ -29,7 +29,7 @@
         <form [formGroup]="DentalVisionForm">
             <div class="row g-3">
                 <div class="col">
-                    <label>First name</label>
+                    <label>First Name</label>
                     <input formControlName = "firstname" class="form-control" aria-label="First name" placeholder="Enter your first name" required/>
                 <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
                     <span class="error" *ngIf="firstname.errors?.required"> *First Name is required</span>
@@ -37,14 +37,14 @@
                 </div>
                 </div>
                 <div class="col">
-                    <label>Middle name</label>
+                    <label>Middle Name</label>
                     <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter middle last name" required>
                     <div *ngIf="middlename.invalid && (middlename.touched || middlename.dirty)">
                         <span class="error" *ngIf="middlename.errors?.pattern"> *Enter Only Characters</span>
                     </div>
                 </div>
                 <div class="col">
-                    <label>Last name</label>
+                    <label>Last Name</label>
                     <input formControlName="lastname" class="form-control"  aria-label="Last name" placeholder="Enter your last name" required>
                     <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
                         <span class="error" *ngIf="lastname.errors?.required"> *Last Name is required</span>
@@ -54,7 +54,7 @@
             </div> 
             <div class="row g-3">
                 <div class="col">
-                    <label>Aadhar number</label>
+                    <label>Aadhar Number</label>
                     <input formControlName="aadhar" class="form-control" aria-label="adhar" placeholder="Enter 12 digit Aadhar number" required/>
                     <div *ngIf="aadhar.invalid && (aadhar.touched || aadhar.dirty)">
                         <span class="error" *ngIf="aadhar.errors?.required"> *Aadhar is required</span>
@@ -73,7 +73,7 @@
                     </div> 
                 </div>
                 <div class="col">
-                    <label>PAN number</label>
+                    <label>PAN Number</label>
                     <input formControlName="pannumber" class="form-control"  aria-label="pan" placeholder="Enter your PAN number" required>
                     <div *ngIf="pannumber.invalid && (pannumber.touched || pannumber.dirty)">
                         <span class="error" *ngIf="pannumber.errors?.required"> Pan is required</span>
@@ -176,7 +176,11 @@
                 <div class="row g-3">
                     <div class="col">
                         <label>Occupation</label>
-                    <input type="text" class="form-control" aria-label="zip" placeholder="Enter your Occupation" required/>
+                        <input formControlName="occupation" class="form-control" aria-label="zip" placeholder="Enter your Occupation" required/>
+                        <div *ngIf="occupation.invalid && (occupation.touched || occupation.dirty)">
+                            <span class="error" *ngIf="occupation.errors?.required"> *Occupation is required</span>
+                            <span class="error" *ngIf="occupation.errors?.pattern"> *Only Characters are allowed</span>
+                        </div>
                     </div>
                     <div class="col">
                         <label>Annual Income in Lacs</label>
@@ -203,7 +207,12 @@
                 </div>
                 <div class="col">
                     <label>Gender</label>
-                <input type="text" class="form-control" aria-label="Gender" placeholder="Male/female" required/>
+                    <select class="form-control" id="genderlist" name="genderlist"  data-component="dropdown">
+                        <option value=""> Please Select </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Transgender">Transgender</option>
+                       </select>
                 </div>
             </div>
             <div>
@@ -215,27 +224,27 @@
             <div class="row g-3">
             <div class="col">
                 <p>Are you planning of cancelling any existing life insurance?</p>
-                  <input type="radio" id="yes" name="fav_language1" value="YES">
+                  <input type="radio"  name="radio1" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no" name="fav_language2" value="NO">
+                  <input type="radio"  name="radio1" value="NO">
                   <label for="css">NO</label>
             </div>
             </div>
             <div class="row g-3">
                 <div class="col">
                 <p>Do you have group life insurance through work?</p>
-                  <input type="radio" id="yes1" name="fav_language3" value="YES">
+                  <input type="radio"  name="radio2" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no1" name="fav_language4" value="NO">
+                  <input type="radio" name="radio2" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
             <div class="row g-3">
                 <div class="col">
                 <p>Do you Consume Tobacco or Alcohol?</p>
-                  <input type="radio" id="yes2" name="fav_language5" value="YES">
+                  <input type="radio"  name="radio3" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no2" name="fav_language6" value="NO">
+                  <input type="radio"  name="radio3" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
@@ -243,9 +252,9 @@
             <div class="row g-3">
                 <div class="col">
                 <p>Any Major Oral Operation in Past?</p>
-                  <input type="radio" id="yes2" name="fav_language7" value="YES">
+                  <input type="radio"  name="radio4" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no2" name="fav_language8" value="NO">
+                  <input type="radio"  name="radio4" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
@@ -263,9 +272,9 @@
             <div class="row g-3">
                 <div class="col">
                 <p>Have/Had cavity any time Or any ungrown teeth? </p>
-                  <input type="radio" id="yes2" name="fav_language13" value="YES">
+                  <input type="radio"  name="radio5" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no2" name="fav_language14" value="NO">
+                  <input type="radio"  name="radio5" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
@@ -275,9 +284,9 @@
             <div class="row g-3">
                 <div class="col">
                 <p>Are you wearing glasses?</p>
-                  <input type="radio" id="yes2" name="fav_language15" value="YES">
+                  <input type="radio"  name="radio6" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no2" name="fav_language16" value="NO">
+                  <input type="radio"  name="radio6" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
@@ -286,9 +295,9 @@
             <div class="row g-3">
                 <div class="col">
                 <p>Do you Have Cataract or any other Eye Disease?</p>
-                  <input type="radio" id="yes2" name="fav_language17" value="YES">
+                  <input type="radio"  name="radio7" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no2" name="fav_language18" value="NO">
+                  <input type="radio"  name="radio7" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
@@ -298,9 +307,9 @@
             <div class="row g-3">
                 <div class="col">
                 <p>Have you ever undergone any Eyes Operation or intend to undergo?</p>
-                  <input type="radio" id="yes2" name="fav_language19" value="YES">
+                  <input type="radio"  name="radio8" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no2" name="fav_language20" value="NO">
+                  <input type="radio"  name="radio8" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>

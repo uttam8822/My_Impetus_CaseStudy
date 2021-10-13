@@ -25,7 +25,8 @@ export class LifeComponent implements OnInit {
       "city": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "contact": new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern('[0-9]*')]),
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
-      "address" : new FormControl(null,[Validators.required])
+      "address" : new FormControl(null,[Validators.required]),
+      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]')])
     });
   }
 
@@ -40,4 +41,5 @@ export class LifeComponent implements OnInit {
   get contact() {return this.LifeForm.get('contact');}
   get income() {return this.LifeForm.get('income');}
   get address() {return this.LifeForm.get('address');}
+  get occupation() {return this.LifeForm.get('occupation');}
 }

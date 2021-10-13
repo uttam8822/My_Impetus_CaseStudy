@@ -24,7 +24,8 @@ export class DentalVisionComponent implements OnInit {
       "city": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "contact": new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern('[0-9]*')]),
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
-      "address" : new FormControl(null,[Validators.required])
+      "address" : new FormControl(null,[Validators.required]),
+      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]')])
     });
   }
 
@@ -39,6 +40,7 @@ export class DentalVisionComponent implements OnInit {
   get contact() {return this.DentalVisionForm.get('contact');}
   get income() {return this.DentalVisionForm.get('income');}
   get address() {return this.DentalVisionForm.get('address');}
+  get occupation() {return this.DentalVisionForm.get('occupation');}
   }
 
 
