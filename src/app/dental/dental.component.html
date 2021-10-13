@@ -27,7 +27,7 @@
         <form [formGroup]="Dental">
             <div class="row g-3">
                 <div class="col">
-                    <label>First name</label>
+                    <label>First Name</label>
                     <input formControlName = "firstname" class="form-control" aria-label="First name" placeholder="Enter your first name" required/>
                 <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
                     <span class="error" *ngIf="firstname.errors?.required"> First Name is required</span>
@@ -35,14 +35,14 @@
                 </div>
                 </div>
                 <div class="col">
-                    <label>Middle name</label>
+                    <label>Middle Name</label>
                     <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter middle last name" required>
                     <div *ngIf="middlename.invalid && (middlename.touched || middlename.dirty)">
                         <span class="error" *ngIf="middlename.errors?.pattern"> *Enter Only Characters</span>
                     </div>
                 </div>
                 <div class="col">
-                    <label>Last name</label>
+                    <label>Last Name</label>
                     <input formControlName="lastname" class="form-control"  aria-label="Last name" placeholder="Enter your last name" required>
                     <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
                         <span class="error" *ngIf="lastname.errors?.required"> *Last Name is required</span>
@@ -52,7 +52,7 @@
             </div> 
             <div class="row g-3">
                 <div class="col">
-                    <label>Aadhar number</label>
+                    <label>Aadhar Number</label>
                     <input formControlName="aadhar" class="form-control" aria-label="adhar" placeholder="Enter 12 digit Aadhar number" required/>
                     <div *ngIf="aadhar.invalid && (aadhar.touched || aadhar.dirty)">
                         <span class="error" *ngIf="aadhar.errors?.required"> *Aadhar is required</span>
@@ -70,7 +70,7 @@
                     </div> 
                 </div>
                 <div class="col">
-                    <label>PAN number</label>
+                    <label>PAN Number</label>
                     <input formControlName="pannumber" class="form-control"  aria-label="pan" placeholder="Enter your PAN number" required>
                     <div *ngIf="pannumber.invalid && (pannumber.touched || pannumber.dirty)">
                         <span class="error" *ngIf="pannumber.errors?.required"> *Pan is required</span>
@@ -173,7 +173,11 @@
                 <div class="row g-3">
                     <div class="col">
                         <label>Occupation</label>
-                    <input type="text" class="form-control" aria-label="zip" placeholder="Enter your Occupation" required/>
+                        <input formControlName="occupation" class="form-control" aria-label="zip" placeholder="Enter your Occupation" required/>
+                        <div *ngIf="occupation.invalid && (occupation.touched || occupation.dirty)">
+                            <span class="error" *ngIf="occupation.errors?.required"> *Occupation is required</span>
+                            <span class="error" *ngIf="occupation.errors?.pattern"> *Only Characters are allowed</span>
+                        </div>
                     </div>
                     <div class="col">
                         <label>Annual Income in Lacs</label>
@@ -199,7 +203,12 @@
                 </div>
                 <div class="col">
                     <label>Gender</label>
-                <input type="text" class="form-control" aria-label="Gender" placeholder="Male/female" required/>
+                    <select class="form-control" id="genderlist" name="genderlist"  data-component="dropdown">
+                        <option value=""> Please Select </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Transgender">Transgender</option>
+                       </select>
                 </div>
             </div>
             <div>
@@ -211,27 +220,27 @@
             <div class="row g-3">
             <div class="col">
                 <p>Are you planning on cancelling any existing life insurance?</p>
-                  <input type="radio" id="yes" name="Dental1" value="YES" >
+                  <input type="radio" name="radio1" value="YES" >
                   <label for="html">YES</label>
-                  <input type="radio" id="no" name="Dental2" value="NO">
+                  <input type="radio"  name="radio1" value="NO">
                   <label for="css">NO</label>
             </div>
             </div>
             <div class="row g-3">
                 <div class="col">
                 <p>Do you have group life insurance through work?</p>
-                  <input type="radio" id="yes1" name="Dental3" value="YES">
+                  <input type="radio" id="yes1" name="radio2" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no1" name="Dental4" value="NO">
+                  <input type="radio" id="no1" name="radio2" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
             <div class="row g-3">
                 <div class="col">
                 <p>Do you consume Tobacco Or Alcohol Or do Smoking? </p>
-                  <input type="radio" id="yes2" name="Dental5" value="YES">
+                  <input type="radio"  name="radio3" value="YES">
                   <label for="html">YES</label>
-                  <input type="radio" id="no2" name="Dental6" value="NO">
+                  <input type="radio"  name="radio3" value="NO">
                   <label for="css">NO</label>
                 </div>
             </div>
