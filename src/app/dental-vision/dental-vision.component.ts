@@ -25,7 +25,7 @@ export class DentalVisionComponent implements OnInit {
       "contact": new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern('[0-9]*')]),
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
-      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]')])
+      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')])
     });
   }
 
