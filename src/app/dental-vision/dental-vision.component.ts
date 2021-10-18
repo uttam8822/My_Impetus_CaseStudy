@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RegistrationService } from '../registration.service';
+import { DVRegistration } from '../dv-registration';
 @Component({
   selector: 'app-dental-vision',
   templateUrl: './dental-vision.component.html',
@@ -9,7 +11,7 @@ export class DentalVisionComponent implements OnInit {
 
  DentalVisionForm:any;
  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-  constructor() { }
+  constructor(private _service:RegistrationService) { }
 
   ngOnInit(): void {
     
@@ -25,7 +27,23 @@ export class DentalVisionComponent implements OnInit {
       "contact": new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern('[0-9]*')]),
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
-      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]')])
+      "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:Male\b|Female\b]*')]),
+      "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
+      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "anyCavity": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "anyEyeDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "wearGlasses": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "anyEyeOperation": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "oralOperation": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "lastDentalCkeck": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+     
     });
   }
 
@@ -41,6 +59,30 @@ export class DentalVisionComponent implements OnInit {
   get income() {return this.DentalVisionForm.get('income');}
   get address() {return this.DentalVisionForm.get('address');}
   get occupation() {return this.DentalVisionForm.get('occupation');}
+  get state() {return this.DentalVisionForm.get('state');}
+  get dateOfBirth() {return this.DentalVisionForm.get('dateOfBirth');}
+  get selectPlane() {return this.DentalVisionForm.get('selectPlane');}
+  get gender() {return this.DentalVisionForm.get('gender');}
+  get healthIssue() {return this.DentalVisionForm.get('healthIssue');}
+  get Tobacco() {return this.DentalVisionForm.get('Tobacco');}
+  get groupInsurance() {return this.DentalVisionForm.get('groupInsurance');}
+  get cancellingInsurance() {return this.DentalVisionForm.get('cancellingInsurance');}
+  get oralOperation() {return this.DentalVisionForm.get('oralOperation');}
+  get lastDentalCkeck() {return this.DentalVisionForm.get('lastDentalCkeck');}
+  get anyCavity() {return this.DentalVisionForm.get('anyCavity');}
+  get wearGlasses() {return this.DentalVisionForm.get('wearGlasses');}
+  get anyEyeDisease() {return this.DentalVisionForm.get('anyEyeDisease');}
+  get anyEyeOperation() {return this.DentalVisionForm.get('anyEyeOperation');}
+  get additionalComments() {return this.DentalVisionForm.get('additionalComments');}
+  user = new DVRegistration();
+  applyDVService(){
+
+    this._service.applyUserForDVService(this.user).subscribe(
+      data=>console.log("response received"),
+      error => console.log("exception occred")
+      
+    );
   }
+}
 
 

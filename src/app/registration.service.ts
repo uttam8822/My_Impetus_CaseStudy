@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { User } from './user';
 import { Admin } from './admin';
 import { Uwriter } from './uwriter';
+import {DentalUser} from './dental-user'
+import {LifeRegistration} from './life-registration'
+import { DVRegistration } from './dv-registration';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +14,25 @@ import { Uwriter } from './uwriter';
 export class RegistrationService {
 
   constructor(private _http : HttpClient) { }
+
+  //for dental service
+  public applyUserForDental(user:DentalUser):Observable<any>{
+    return this._http.post<any>("http://localhost:8066/registeruserservice",user);
+    }
+
+  //for life service  
+  public applyUserForLife(user:LifeRegistration):Observable<any>{
+    return this._http.post<any>("http://localhost:8066/registerlifeservice",user);
+    }
+
+
+    //for dental and vision service
+    public applyUserForDVService(user:DVRegistration):Observable<any>{
+      return this._http.post<any>("http://localhost:8066/registerdentalvisionservice",user);
+      }
+
+
+
   public loginUserFromRemote(user:User):Observable<any>{
   return this._http.post<any>("http://localhost:8071/login",user);
   }

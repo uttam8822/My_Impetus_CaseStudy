@@ -1,6 +1,8 @@
 import { variable } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {LifeRegistration} from '../life-registration'
+import { RegistrationService } from '../registration.service';
 
 @Component({
   selector: 'app-life',
@@ -11,13 +13,13 @@ export class LifeComponent implements OnInit {
   
   LifeForm : any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-  constructor() { }
+  constructor(private _service:RegistrationService) { }
 
   ngOnInit(): void {
     this.LifeForm = new FormGroup({
       "firstname" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "lastname" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "middlename" : new FormControl(null,[Validators.pattern('[a-zA-Z]')]),
+      "middlename" : new FormControl(null,[Validators.pattern('[a-zA-Z]*')]),
       "pannumber" : new FormControl(null,[Validators.required,Validators.pattern('[[A-Z]{5}[0-9]{4}[A-Z]{1}]*')]),
       "aadhar"    : new FormControl(null, [Validators.required,Validators.minLength(12),Validators.maxLength(12),Validators.pattern('[0-9]*')]),
       "email"     : new FormControl(null,[Validators.required,Validators.pattern(this.emailPattern)]),
@@ -26,7 +28,19 @@ export class LifeComponent implements OnInit {
       "contact": new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern('[0-9]*')]),
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
-      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]')])
+      "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
+      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:Male\b|Female\b]*')]),
+      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "hivIssue": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "lungDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')])
+   
     });
   }
 
@@ -42,4 +56,26 @@ export class LifeComponent implements OnInit {
   get income() {return this.LifeForm.get('income');}
   get address() {return this.LifeForm.get('address');}
   get occupation() {return this.LifeForm.get('occupation');}
+  get state() {return this.LifeForm.get('state');}
+  get dateOfBirth() {return this.LifeForm.get('dateOfBirth');}
+  get selectPlane() {return this.LifeForm.get('selectPlane');}
+  get gender() {return this.LifeForm.get('gender');}
+  get healthIssue() {return this.LifeForm.get('healthIssue');}
+  get Tobacco() {return this.LifeForm.get('Tobacco');}
+  get groupInsurance() {return this.LifeForm.get('groupInsurance');}
+  get cancellingInsurance() {return this.LifeForm.get('cancellingInsurance');}
+  get hivIssue() {return this.LifeForm.get('hivIssue');}
+  get lungDisease() {return this.LifeForm.get('lungDisease');}
+  get additionalComments() {return this.LifeForm.get('additionalComments');}
+
+  user = new LifeRegistration();
+  applyLife(){
+
+    this._service.applyUserForLife(this.user).subscribe(
+      data=>console.log("response received"),
+      error => console.log("exception occred")
+      
+    );
+
+  }
 }
