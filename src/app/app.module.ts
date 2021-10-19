@@ -23,6 +23,20 @@ import { DentalVisionComponent } from './dental-vision/dental-vision.component';
 import { ServiceComponent } from './service/service.component';
 import { CreatuwComponent } from './creatuw/creatuw.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdheaderComponent } from './adheader/adheader.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { FetchdatadentalComponent } from './fetchdatadental/fetchdatadental.component';
+import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component';
+import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
 
 
 @NgModule({
@@ -44,14 +58,28 @@ import { ReactiveFormsModule } from '@angular/forms';
     DentalComponent,
     DentalVisionComponent,
     ServiceComponent,
-    CreatuwComponent
+    CreatuwComponent,
+    AdheaderComponent,
+    SidenavListComponent,
+    FetchdatadentalComponent,
+    FetchdatalifeComponent,
+    FetchdatadentalvisionComponent
   ],
   imports: [
     HttpClientModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { FetchdatadentalComponent } from './fetchdatadental/fetchdatadental.component';
+import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component';
+import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
 
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
@@ -32,7 +35,10 @@ const routes: Routes = [
   {path:'cretuw',component:CreatuwComponent},
   {path:'dental',component:DentalComponent},
   {path:'denvi',component:DentalVisionComponent},
-  {path:'signup',component:SignupComponent}
+  {path:'signup',component:SignupComponent},
+  {path:"detaldata",component:FetchdatadentalComponent},
+  {path:"lifedata",component:FetchdatalifeComponent},
+  {path:"DVdata",component:FetchdatadentalvisionComponent}
 ];
 
 @NgModule({

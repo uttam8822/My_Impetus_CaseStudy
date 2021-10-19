@@ -31,6 +31,23 @@ export class RegistrationService {
       return this._http.post<any>("http://localhost:8066/registerdentalvisionservice",user);
       }
 
+  //fetch dental data
+  getDentalData(){
+    let apiurl ="http://localhost:8066/getdentaldata";
+    return this._http.get(apiurl);
+  }    
+
+  //fetch life data
+  getLifeData(){
+    let apiurl ="http://localhost:8066/getlifedata";
+    return this._http.get(apiurl);
+  }  
+
+  //fetch data dental vision
+  getDentalVisionData(){
+    let apiurl ="http://localhost:8066/getdentalvisiondata";
+    return this._http.get(apiurl);
+  } 
 
 
   public loginUserFromRemote(user:User):Observable<any>{
