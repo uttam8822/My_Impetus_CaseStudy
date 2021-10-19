@@ -18,6 +18,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FetchdatadentalComponent } from './fetchdatadental/fetchdatadental.component';
 import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component';
 import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
+import { CreateadminComponent } from './createadmin/createadmin.component';
 
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'about',component:AboutComponent},
   {path:'adhome',component:AdhomeComponent},
-  {path:'uwhome',component:UwhomeComponent},
+  {path:'uwriterhome',component:UwhomeComponent},
   {path:'uwlogin',component:UwloginComponent},
   {path:'adlogin',component:AdloginComponent},
   {path:'uhome',component:UhomeComponent},
@@ -38,7 +39,9 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:"detaldata",component:FetchdatadentalComponent},
   {path:"lifedata",component:FetchdatalifeComponent},
-  {path:"DVdata",component:FetchdatadentalvisionComponent}
+  {path:"DVdata",component:FetchdatadentalvisionComponent},
+  {path:"createAdmin",component:CreateadminComponent}
+ 
 ];
 
 @NgModule({

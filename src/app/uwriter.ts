@@ -1,6 +1,6 @@
 export class Uwriter {
     id:number;
-    userid:string;
+    writerId:string;
     password:string;
 
    constructor(){}

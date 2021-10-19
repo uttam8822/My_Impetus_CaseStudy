@@ -24,7 +24,7 @@ export class UwloginComponent implements OnInit {
     data=>{
       console.log("registered successfully");
       this.msg="Login Successfully";
-      //this. _route.navigate(["/uwhome"]);
+      this. _route.navigate(["/uwriterhome"]);
     },
     error=>{
       console.error("exception occurred")

@@ -1,6 +1,6 @@
 export class Admin {
     id:number;
-    email:String;
+    adminId:String;
     password:String;
 
 }

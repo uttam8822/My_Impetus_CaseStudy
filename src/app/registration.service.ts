@@ -22,47 +22,51 @@ export class RegistrationService {
 
   //for life service  
   public applyUserForLife(user:LifeRegistration):Observable<any>{
-    return this._http.post<any>("http://localhost:8066/registerlifeservice",user);
+    return this._http.post<any>("http://localhost:8067/registerlifeservice",user);
     }
 
 
     //for dental and vision service
     public applyUserForDVService(user:DVRegistration):Observable<any>{
-      return this._http.post<any>("http://localhost:8066/registerdentalvisionservice",user);
+      return this._http.post<any>("http://localhost:8067/registerdentalvisionservice",user);
       }
 
   //fetch dental data
   getDentalData(){
-    let apiurl ="http://localhost:8066/getdentaldata";
+    let apiurl ="http://localhost:8067/getdentaldata";
     return this._http.get(apiurl);
   }    
 
   //fetch life data
   getLifeData(){
-    let apiurl ="http://localhost:8066/getlifedata";
+    let apiurl ="http://localhost:8067/getlifedata";
     return this._http.get(apiurl);
   }  
 
   //fetch data dental vision
   getDentalVisionData(){
-    let apiurl ="http://localhost:8066/getdentalvisiondata";
+    let apiurl ="http://localhost:8067/getdentalvisiondata";
     return this._http.get(apiurl);
   } 
 
 
   public loginUserFromRemote(user:User):Observable<any>{
-  return this._http.post<any>("http://localhost:8071/login",user);
+  return this._http.post<any>("http://localhost:8067/login",user);
   }
   public registerUserFromRemote(user:User):Observable<any>{
-    return this._http.post<any>("http://localhost:8071/registeruser",user);
+    return this._http.post<any>("http://localhost:8067/registeruser",user);
   }
   public loginAdminFromRemote(admin:Admin):Observable<any>{
-    return this._http.post<any>("http://localhost:8091/adlogin",admin);
+    return this._http.post<any>("http://localhost:8067/adlogin",admin);
     }
+
+    public createAdminFromRemote(admin:Admin):Observable<any>{
+      return this._http.post<any>("http://localhost:8067/createadmin",admin);
+      }
   public registerUwriter(uwriter:Uwriter):Observable<any>{
-    return this. _http.post<any>("http://localhost:8091/cruwriter",uwriter);
+    return this. _http.post<any>("http://localhost:8067/createUW",uwriter);
   }
   public loginUwriter(uwriter:Uwriter):Observable<any>{
-    return this. _http.post<any>("http://localhost:8091/uwlogin",uwriter);
+    return this. _http.post<any>("http://localhost:8067/uwlogin",uwriter);
   }
 }

@@ -8,7 +8,7 @@
     <a mat-list-item routerLink="#" (click)="onSidenavClose()">
         <mat-icon>account_balance</mat-icon><span class="nav-caption">Account Actions</span>
     </a>
-    <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
         <mat-icon>logout</mat-icon><span class="nav-caption">Logout</span>
     </a>
 
@@ -17,7 +17,8 @@
         <a matline>Create</a>
     </mat-list-item>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="onSidenavClose()">Under Writer</button>
-      <button mat-menu-item (click)="onSidenavClose()">Admin</button>
+      <a routerLink="/cretuw" mat-menu-item (click)="onSidenavClose()" style="color: black;">Under Writer</a>
+      <a routerLink="/createAdmin" mat-menu-item (click)="onSidenavClose()" style="color: black;">Admin</a>
+     
     </mat-menu>
   </mat-nav-list>

@@ -3,21 +3,21 @@
   
   <body>
 
-    <h2 style="text-align: center; margin-top: 50px; color: blue;">Generate Underwriter</h2>
+    <h2 style="text-align: center; margin-top: 50px; color: blue;">Create Admin</h2>
     
-    <form #RegisterForm="ngForm" (ngSubmit)="createUw()" class="mx-1 mx-md-4">
+    <form #RegisterForm="ngForm" (ngSubmit)="createAdmin()" class="mx-1 mx-md-4">
       <div class="imgcontainer">
       </div>
       <small class="text-danger">{{msg1}}</small>
       <div class="container">
         <label for="userid"><b>Generate UserId</b></label>
-        <input type="text" placeholder="Generate UserId" name="userid" required [(ngModel)]="uwriter.writerId" />
+        <input type="text" placeholder="Generate UserId" name="userid" required [(ngModel)]="createAd.adminId" />
          
     
         <label for="psw"><b>Create Password</b></label>
-        <input type="password" placeholder="Create Password"  name="password" required [(ngModel)]="uwriter.password" />
+        <input type="password" placeholder="Create Password"  name="password" required [(ngModel)]="createAd.password" />
             
-        <button type="submit">Create UnderWriter</button>
+        <button type="submit">Create Admin</button>
       </div>
     
       <div class="container" style="background-color:#f1f1f1">

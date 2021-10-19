@@ -37,6 +37,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { FetchdatadentalComponent } from './fetchdatadental/fetchdatadental.component';
 import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component';
 import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
+import { CreateadminComponent } from './createadmin/createadmin.component';
+ 
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdat
     SidenavListComponent,
     FetchdatadentalComponent,
     FetchdatalifeComponent,
-    FetchdatadentalvisionComponent
+    FetchdatadentalvisionComponent,
+    CreateadminComponent,
+    
   ],
   imports: [
     HttpClientModule,
