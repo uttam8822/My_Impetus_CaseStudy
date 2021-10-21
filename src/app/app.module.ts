@@ -38,6 +38,8 @@ import { FetchdatadentalComponent } from './fetchdatadental/fetchdatadental.comp
 import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component';
 import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
 import { CreateadminComponent } from './createadmin/createadmin.component';
+import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
+ 
  
 
 
@@ -67,6 +69,8 @@ import { CreateadminComponent } from './createadmin/createadmin.component';
     FetchdatalifeComponent,
     FetchdatadentalvisionComponent,
     CreateadminComponent,
+    SuccessfullcomponentComponent,
+    
     
   ],
   imports: [

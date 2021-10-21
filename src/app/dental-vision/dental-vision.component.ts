@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { DVRegistration } from '../dv-registration';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dental-vision',
   templateUrl: './dental-vision.component.html',
@@ -11,7 +12,7 @@ export class DentalVisionComponent implements OnInit {
 
  DentalVisionForm:any;
  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-  constructor(private _service:RegistrationService) { }
+ constructor(private _service:RegistrationService,private _route: Router) { }
 
   ngOnInit(): void {
     
@@ -28,17 +29,17 @@ export class DentalVisionComponent implements OnInit {
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:Male\b|Female\b]*')]),
+      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:MALE\bmale|female\bFEMALE]*')]),
       "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
-      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "anyCavity": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "anyEyeDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "wearGlasses": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "anyEyeOperation": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "oralOperation": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
+      "anyCavity": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
+      "anyEyeDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
+      "wearGlasses": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
+      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
+      "anyEyeOperation": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
+      "oralOperation": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "lastDentalCkeck": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
-      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
@@ -78,8 +79,15 @@ export class DentalVisionComponent implements OnInit {
   applyDVService(){
 
     this._service.applyUserForDVService(this.user).subscribe(
-      data=>console.log("response received"),
-      error => console.log("exception occred")
+      data=>{
+        console.log("response received");
+        this._route.navigate(["/success"])
+      },
+      error => 
+      {
+        console.log("exception occred")
+        alert("Please fill form correctly");
+      } 
       
     );
   }

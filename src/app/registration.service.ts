@@ -13,11 +13,13 @@ import { DVRegistration } from './dv-registration';
 })
 export class RegistrationService {
 
+   
+
   constructor(private _http : HttpClient) { }
 
   //for dental service
   public applyUserForDental(user:DentalUser):Observable<any>{
-    return this._http.post<any>("http://localhost:8066/registeruserservice",user);
+    return this._http.post<any>("http://localhost:8067/registeruserservice",user);
     }
 
   //for life service  
@@ -49,6 +51,15 @@ export class RegistrationService {
     return this._http.get(apiurl);
   } 
 
+   //update dental application status
+   updateStatusOfDental(id:string,user:DentalUser):Observable<object>{
+     return this._http.put(`http://localhost:8067/status/${id}`,user);
+   }
+   
+
+
+
+   
 
   public loginUserFromRemote(user:User):Observable<any>{
   return this._http.post<any>("http://localhost:8067/login",user);

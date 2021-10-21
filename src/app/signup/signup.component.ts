@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 import { FormControl, FormGroup, Validators ,FormBuilder} from '@angular/forms';
+import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -47,7 +48,7 @@ export class SignupComponent implements OnInit {
 
 
 
- 
+   
 
 
 

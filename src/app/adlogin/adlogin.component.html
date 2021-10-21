@@ -38,14 +38,14 @@
       
                       <form #loginform="ngForm" (ngSubmit)="loginAdmin()" class="mx-1 mx-md-4">
       
-                        
+                        <p style="color: red;">{{msg}}</p>
       
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                          <p>{{msg}}</p>
+                          
                           <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="form3Example3c">Your Email</label>
-                            <input  name="email" type="email" id="form3" class="form-control" placeholder="Enter your email" required="required" #email=ngModel [(ngModel)]="admin.adminId" />
+                            <label class="form-label" for="form3Example3c">Your Id Number</label>
+                            <input  name="email" type="email" id="form3" class="form-control" placeholder="Enter your email" required="required" #email=ngModel [(ngModel)]="admin.adminId" email="ngModel"/>
                              </div>
                         </div>
       
@@ -53,7 +53,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Exam">Password</label>
-                            <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Enter your password" required="required" #password="ngModel" [(ngModel)]="admin.password" />
+                            <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Enter your password" required="required" #password="ngModel" [(ngModel)]="admin.password" password="ngModel" />
                             
                           </div>
                         </div>

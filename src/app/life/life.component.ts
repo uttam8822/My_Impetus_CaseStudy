@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {LifeRegistration} from '../life-registration'
 import { RegistrationService } from '../registration.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-life',
@@ -13,7 +14,7 @@ export class LifeComponent implements OnInit {
   
   LifeForm : any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-  constructor(private _service:RegistrationService) { }
+  constructor(private _service:RegistrationService,private _route: Router) { }
 
   ngOnInit(): void {
     this.LifeForm = new FormGroup({
@@ -31,12 +32,12 @@ export class LifeComponent implements OnInit {
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
-      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:Male\b|Female\b]*')]),
-      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "hivIssue": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "lungDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
+      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
+      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "hivIssue": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "lungDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')])
@@ -72,8 +73,16 @@ export class LifeComponent implements OnInit {
   applyLife(){
 
     this._service.applyUserForLife(this.user).subscribe(
-      data=>console.log("response received"),
-      error => console.log("exception occred")
+      data=>{
+        console.log("response received");
+        this._route.navigate(["/success"])
+      },
+      error => 
+      {
+        console.log("exception occred")
+        alert("Please fill form correctly");
+      }  
+      
       
     );
 

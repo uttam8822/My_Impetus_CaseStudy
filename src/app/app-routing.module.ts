@@ -19,6 +19,7 @@ import { FetchdatadentalComponent } from './fetchdatadental/fetchdatadental.comp
 import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component';
 import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
 import { CreateadminComponent } from './createadmin/createadmin.component';
+import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
 
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path:"detaldata",component:FetchdatadentalComponent},
   {path:"lifedata",component:FetchdatalifeComponent},
   {path:"DVdata",component:FetchdatadentalvisionComponent},
-  {path:"createAdmin",component:CreateadminComponent}
+  {path:"createAdmin",component:CreateadminComponent},
+  {path:"success",component:SuccessfullcomponentComponent}
  
 ];
 

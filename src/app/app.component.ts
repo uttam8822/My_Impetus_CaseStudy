@@ -1,4 +1,6 @@
+import { AotSummaryResolver } from '@angular/compiler';
 import { Component } from '@angular/core';
+declare let AOS: any
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'case-study';
 
+  ngOnInit(){
+    AOS.init();
+  }
+
+  onActivate(event){
+    window.scroll(0,0);
+  }
   
 }

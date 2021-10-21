@@ -1,5 +1,5 @@
 export class DentalUser {
-    
+         
         firstName: string;
         middleNmme: string;
         lastName: string;
@@ -21,6 +21,7 @@ export class DentalUser {
         groupInsurance:string;
         tobacco:string;
         additionalComments:string;
+        applicationStatus:boolean;
 
         constructor(){}
     

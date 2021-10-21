@@ -20,7 +20,6 @@
   .header a.nav {
     font-size: 25px;
     font-weight: bold;
-    font-style: italic;
     color:rgb(53, 50, 50);
     background-color: rgb(123, 245, 92);
     margin-top: 20px;
@@ -173,7 +172,7 @@
 }
 
 #fixed{
-    background: url('https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') no-repeat center center fixed;
+    background: url('https://asset.mansionglobal.com/editorial/9-ideas-for-home-office-design/assets/mVDNuOv9Jl/homeoffice_lead-2560x1400.jpeg') no-repeat center center fixed;
     display: table;
     height: 60%;
     position: relative;

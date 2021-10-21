@@ -36,7 +36,7 @@
                 </div>
                 <div class="col">
                     <label>Middle Name</label>
-                    <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter middle last name" required [(ngModel)] = "user.middleNmme">
+                    <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter middle name" required [(ngModel)] = "user.middleNmme">
                     <div *ngIf="middlename.invalid && (middlename.touched || middlename.dirty)">
                         <span class="error" *ngIf="middlename.errors?.pattern"> *Enter Only Characters</span>
                     </div>
@@ -120,8 +120,8 @@
                       
                     </div>
                     <div class="col">
-                        <label>Contact</label>
-                        <input formControlName="contact" class="form-control" aria-label="contact" placeholder="9100000000" required required [(ngModel)] = "user. contact"/>
+                        <label>Mobile No</label>
+                        <input formControlName="contact" class="form-control" aria-label="contact" placeholder="Ex: 7659085543" required required [(ngModel)] = "user. contact"/>
                         <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
                             <span class="error" *ngIf="contact.errors?.required"> *Mobile is required</span>
                             <span class="error" *ngIf="contact.errors?.pattern"> *Only Numbers are allowed</span>

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import {DentalUser} from '../dental-user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dental',
@@ -15,7 +16,7 @@ export class DentalComponent implements OnInit {
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   
   
-  constructor(private _service:RegistrationService) { }
+  constructor(private _service:RegistrationService,private _route: Router) { }
   
     
 
@@ -35,10 +36,10 @@ export class DentalComponent implements OnInit {
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
       "occupation": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:Yes\b|No\b]*')]),
-      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:Male\b|Female\b]*')]),
+      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
@@ -73,8 +74,15 @@ export class DentalComponent implements OnInit {
   applyDental(){
 
     this._service.applyUserForDental(this.user).subscribe(
-      data=>console.log("response received"),
-      error => console.log("exception occred")
+      data=>{
+        console.log("response received");
+        this._route.navigate(["/success"])
+      },
+      error => 
+      {
+        console.log("exception occred")
+        alert("Please fill form correctly");
+      }  
       
     );
 
