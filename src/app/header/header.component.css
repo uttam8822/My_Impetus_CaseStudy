@@ -1,0 +1,64 @@
+.header {
+    overflow: hidden;
+    background-color: #121213;
+    padding: 10px 10px;
+  }
+  
+  /* Style the header links */
+  .header a {
+    float: left;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  .header a.nav {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    color:rgb(53, 50, 50);
+    background-color: rgb(12, 12, 12);
+    margin-top: 20px;
+  }
+  
+  /* Change the background color on mouse-over */
+  .header a.nav-link:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Style the active/current link*/
+  .header a.nav-link {
+    background-color: rgb(13, 13, 14);
+    color: white;
+  }
+  
+  /* Float the link section to the right */
+  .header-right {
+    float: right;
+  }
+  
+  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .header-right {
+      float: none;
+    }
+  }
+  marquee {
+    font-size:large;
+    color: rgb(255, 255, 255);
+  }
+  h5{
+      margin-left: 0px;
+  }
+
