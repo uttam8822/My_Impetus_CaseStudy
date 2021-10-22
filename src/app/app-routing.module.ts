@@ -20,6 +20,7 @@ import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component'
 import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
 import { CreateadminComponent } from './createadmin/createadmin.component';
 import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
+import { LifeServiceUserDetailsComponent } from './life-service-user-details/life-service-user-details.component';
 
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path:"lifedata",component:FetchdatalifeComponent},
   {path:"DVdata",component:FetchdatadentalvisionComponent},
   {path:"createAdmin",component:CreateadminComponent},
-  {path:"success",component:SuccessfullcomponentComponent}
+  {path:"success",component:SuccessfullcomponentComponent},
+  {path:"lifeServiceDetails",component:LifeServiceUserDetailsComponent}
  
 ];
 

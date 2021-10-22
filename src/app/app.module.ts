@@ -11,7 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,} from '@angular/forms';
 import { AdhomeComponent } from './adhome/adhome.component';
 import { UwhomeComponent } from './uwhome/uwhome.component';
 import { AdloginComponent } from './adlogin/adlogin.component';
@@ -39,6 +39,8 @@ import { FetchdatalifeComponent } from './fetchdatalife/fetchdatalife.component'
 import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdatadentalvision.component';
 import { CreateadminComponent } from './createadmin/createadmin.component';
 import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
+import { LifeServiceUserDetailsComponent } from './life-service-user-details/life-service-user-details.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
  
  
 
@@ -70,6 +72,8 @@ import { SuccessfullcomponentComponent } from './successfullcomponent/successful
     FetchdatadentalvisionComponent,
     CreateadminComponent,
     SuccessfullcomponentComponent,
+    LifeServiceUserDetailsComponent,
+    ConfirmDialogComponent,
     
     
   ],

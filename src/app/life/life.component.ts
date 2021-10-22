@@ -12,6 +12,27 @@ import { Router } from '@angular/router';
 })
 export class LifeComponent implements OnInit {
   
+
+  selectedDay:string ='';
+
+  selectChangeHandler(event:any){
+    this.selectedDay=event.target.value;
+    if(this.selectedDay=="Individual"){
+      alert("Your Yearly policy will be Rs-50000/- whould you like to proceed");
+    }
+    if(this.selectedDay=="Individual & Spouse"){
+     alert("Your Yearly policy will be Rs-40000/- whould you like to proceed");
+   }
+   if(this.selectedDay=="Individual"){
+     alert("Your Yearly policy will be Rs-30000/- whould you like to proceed");
+   }
+   if(this.selectedDay=="Individual Spouse & Child"){
+     alert("Your Yearly policy will be Rs-20000/- whould you like to proceed");
+   }
+   if(this.selectedDay=="Individual Spouse & Parents"){
+     alert("Your Yearly policy will be Rs-10000/- whould you like to proceed");
+   }
+  }
   LifeForm : any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   constructor(private _service:RegistrationService,private _route: Router) { }
@@ -80,7 +101,7 @@ export class LifeComponent implements OnInit {
       error => 
       {
         console.log("exception occred")
-        alert("Please fill form correctly");
+        alert("Please Fill All Requred Feild Correctly");
       }  
       
       

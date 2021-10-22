@@ -52,8 +52,8 @@ export class RegistrationService {
   } 
 
    //update dental application status
-   updateStatusOfDental(id:string,user:DentalUser):Observable<object>{
-     return this._http.put(`http://localhost:8067/status/${id}`,user);
+   updateStatusOfDental(user:DentalUser):Observable<object>{
+     return this._http.put("http://localhost:8067/status/user",user);
    }
    
 

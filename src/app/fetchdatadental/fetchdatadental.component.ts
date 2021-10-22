@@ -29,8 +29,8 @@ export class FetchdatadentalComponent implements OnInit {
 
   
   
-  public dentalApprove(id:string){
-  this.userRegistration.updateStatusOfDental(id,this.user).subscribe(
+  public dentalApprove(user){
+  this.userRegistration.updateStatusOfDental(user).subscribe(
     data=>{
          alert("updated successfully");
     },

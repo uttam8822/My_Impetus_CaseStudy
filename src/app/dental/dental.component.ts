@@ -15,7 +15,31 @@ export class DentalComponent implements OnInit {
   Dental:any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   
-  
+    yearList:any =['1','2','3','4','5'];
+
+     selectedDay:string ='';
+
+     selectChangeHandler(event:any){
+       this.selectedDay=event.target.value;
+       if(this.selectedDay=="Individual"){
+         alert("Your Yearly policy will be Rs-50000/- whould you like to proceed");
+       }
+       if(this.selectedDay=="Individual & Spouse"){
+        alert("Your Yearly policy will be Rs-40000/- whould you like to proceed");
+      }
+      if(this.selectedDay=="Individual"){
+        alert("Your Yearly policy will be Rs-30000/- whould you like to proceed");
+      }
+      if(this.selectedDay=="Individual Spouse & Child"){
+        alert("Your Yearly policy will be Rs-20000/- whould you like to proceed");
+      }
+      if(this.selectedDay=="Individual Spouse & Parents"){
+        alert("Your Yearly policy will be Rs-10000/- whould you like to proceed");
+      }
+     }
+     
+   
+
   constructor(private _service:RegistrationService,private _route: Router) { }
   
     
@@ -39,14 +63,20 @@ export class DentalComponent implements OnInit {
       "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
+     // "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')])
+      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      //selectPlane: new FormControl('', Validators.required)
     });
   }
+ 
+  get f(){
+    return this.Dental.controls;
+  }
+
 
   get firstname() {return this.Dental.get('firstname');}
   get lastname() {return this.Dental.get('lastname');}
@@ -69,19 +99,23 @@ export class DentalComponent implements OnInit {
   get gender() {return this.Dental.get('gender');}
   get healthIssue() {return this.Dental.get('healthIssue');}
   get additionalComments() {return this.Dental.get('additionalComments');}
+
    user = new DentalUser();
+
+  
 
   applyDental(){
 
     this._service.applyUserForDental(this.user).subscribe(
       data=>{
         console.log("response received");
-        this._route.navigate(["/success"])
+        console.log(this.Dental.value);
+       this._route.navigate(["/success"])
       },
       error => 
       {
         console.log("exception occred")
-        alert("Please fill form correctly");
+        alert("Please Fill All Requred Feild Correctly");
       }  
       
     );
